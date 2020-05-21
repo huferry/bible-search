@@ -1,0 +1,25 @@
+.popup {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 30px;
+    background-color: white;
+    -webkit-box-shadow: 14px 17px 30px 4px rgba(0,0,0,0.29);
+    -moz-box-shadow: 14px 17px 30px 4px rgba(0,0,0,0.29);
+    box-shadow: 14px 17px 30px 4px rgba(0,0,0,0.29);
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.5em;
+}
+
+a {
+    color: black;
+}
+
+#back {
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 40px;
+    text-align: right;
+}
