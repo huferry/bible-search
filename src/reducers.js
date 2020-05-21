@@ -28,10 +28,7 @@ export const verses = (state=initialStateVerses, action={}) => {
             if (queries && queries.length > 0) {
                 const query = queries[0]
                 const verses = BibleService.query(query)
-                
                 return {...state, ...{query, verses}}
-
-
             }
             return {...state, ...{query: undefined}}
         default:

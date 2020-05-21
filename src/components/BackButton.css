@@ -1,0 +1,20 @@
+.back-button {
+    background-image: url('/button_bg.png');
+    background-size: cover;
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}

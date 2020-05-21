@@ -9,6 +9,41 @@ import Scroll from './components/Scroll';
 import Button from './components/Button'
 import Popup from './components/Popup';
 import HtmlFrame from './components/HtmlFrame'
+import SubContentTexts from './SubContentTexts'
+import BackButton from './components/BackButton'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+library.add(fab)
+
+const links = [
+  { 
+    icon: ['fab', 'github'],
+    text: 'Repository',
+    url: 'https://github.com/huferry/bible-search'
+  },
+  {
+    icon: ['fab', 'linkedin'],
+    text: 'Profile',
+    url: 'https://www.linkedin.com/in/heruutomo/'
+  },
+  {
+    icon: ['fab', 'instagram'],
+    text: 'Instagram',
+    url: 'https://www.instagram.com/huferry/'
+  },
+  {
+    icon: ['fab', 'twitter'],
+    text: 'Twitter',
+    url: 'https://twitter.com/huferry'
+  },
+  {
+    icon: ['fab', 'facebook'],
+    text: 'Facebook',
+    url: 'https://www.facebook.com/huferry/'
+  }
+]
 
 const mapStateToProps = (state) => {
   return {
@@ -45,21 +80,16 @@ const App = ({
     onRequestClose,
     onRequestSubContent }) => {
 
-  onRequestSubContent('why.html', 'why')
-  onRequestSubContent('who.html', 'who')
-
   return (
     <div id="container">
-      <div id="bg-section2">
-        test
-      </div>
+      <div id="bg-section2"></div>
       <div id="section1">
         <h1 className='title'>Bible Lookup</h1>
         <div>
-          <div>/DEMO/</div>
-          <div onClick={() => onRequestSubContent('why.html', 'why')}>/WHY/</div>
-          <div>/WHO/</div>
-          <div>/WHAT/</div>
+          <a href="#section3">/DEMO/</a>
+          <a href="#section4">/WHY/</a>
+          <a href="#section5">/WHO/</a>
+          <a href="#section6">/WHAT/</a>
         </div>
       </div>
       <div id="section2">
@@ -74,40 +104,30 @@ const App = ({
             <VerseViewer query={query} verses={verses}/>
           </Scroll>
         </div>
+        <BackButton/>
       </div>
       <div id="section4">
-        <HtmlFrame content={subContent.why} />
+        <HtmlFrame content={SubContentTexts.why} />
+        <BackButton/>
       </div>
       <div id="section5">
-        <HtmlFrame content={subContent.who} />
+        <HtmlFrame content={SubContentTexts.who} />
+        <BackButton/>
       </div>
-      { /*
-      <div id="main">
-        <h1 className='title'>Bible Lookup</h1>
-        <SearchBar searchChange={onSearchChange} searchField={searchField}/>
-        <hr/>      
-        <Scroll>
-          <VerseViewer query={query} verses={verses}/>
-        </Scroll>
+      <div id="section6">
+        <HtmlFrame content={SubContentTexts.what} />
+        <BackButton/>
       </div>
-      <div id="footer">
+      <div id="section7">
         {
-          buttons.map(b =>
-            <Button 
-              key={b}
-              caption={b} 
-              onClick={() => onRequestPopup(`${b}.html`)}              
-            />
-          )
+          links.map((item, idx) => {
+            return (<div>
+              <FontAwesomeIcon icon={item.icon} />
+              <a href={item.url} target="_blank"> {item.text}</a>
+            </div>)
+          })
         }
       </div>
-      */
-      }
-      <Popup isVisible={popupVisible} requestClose={onRequestClose}>
-        <div dangerouslySetInnerHTML={{
-          __html: popupContent
-        }}></div>
-      </Popup>
     </div>
   );
 }
