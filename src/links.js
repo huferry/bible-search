@@ -1,8 +1,13 @@
 const links = [
     { 
       icon: ['fab', 'github'],
-      text: 'Repository',
+      text: 'Frontend (this) Repository',
       url: 'https://github.com/huferry/bible-search'
+    },
+    { 
+      icon: ['fab', 'github'],
+      text: 'API Repository',
+      url: 'https://github.com/huferry/bible-api'
     },
     {
       icon: ['fab', 'linkedin'],

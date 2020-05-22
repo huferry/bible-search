@@ -49,9 +49,13 @@ The layout is made responsive to the user's device. Try to open the page both
 on the PC and a mobile device and you will see a slight difference between the
 two.
 </p>
-<p>
-<strong>Azure Wep Service.</strong>
-..
+<p><strong>Azure Web Service.</strong>
+The bible texts are provided by a web service that is deployed as an
+Azure web service. The source of this API can be found on this
+<a href="https://github.com/huferry/bible-api"><img src="https://github.com/favicon.ico">GitHub repository</a>.
+</p>
+<p>Test the API on your browser: <a href="https://bible-verses-service.azurewebsites.net/verses/acts%201:1"><u>
+https://bible-verses-service.azurewebsites.net/verses/acts%201:1</u></a>
 </p>
 `
 
