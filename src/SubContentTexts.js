@@ -49,6 +49,10 @@ The layout is made responsive to the user's device. Try to open the page both
 on the PC and a mobile device and you will see a slight difference between the
 two.
 </p>
+<p>
+<strong>Azure Wep Service.</strong>
+..
+</p>
 `
 
 const who = `
