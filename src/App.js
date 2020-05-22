@@ -2,12 +2,9 @@ import React from 'react';
 import SearchBar from './components/SearchBar'
 import VerseViewer from './components/VerseViewer'
 import { connect } from 'react-redux'
-import { SearchActions, VersesActions, PopupActions, requestPopup, requestSubContent } from './actions'
-import Background from './Background';
+import { SearchActions, VersesActions } from './actions'
 import './App.css';
 import Scroll from './components/Scroll';
-import Button from './components/Button'
-import Popup from './components/Popup';
 import HtmlFrame from './components/HtmlFrame'
 import SubContentTexts from './SubContentTexts'
 import BackButton from './components/BackButton'
@@ -49,10 +46,7 @@ const mapStateToProps = (state) => {
   return {
     searchField: state.searchVerses.searchField,
     verses: state.verses.verses,
-    query: state.verses.query,
-    popupContent: state.popup.content,
-    popupVisible: state.popup.visible,
-    subContent: state.subContent,
+    query: state.verses.query
   }
 }
 
@@ -61,10 +55,7 @@ const mapDispatchToProps = (dispatch) => {
     onSearchChange: event => {
       dispatch({type: VersesActions.SET_QUERY, payload: event.target.value })
       dispatch({type: SearchActions.CHANGE_SEARCHFIELD, payload: event.target.value})      
-    },
-    onRequestPopup: (path) => dispatch(requestPopup(path)),
-    onRequestClose: () => dispatch({type: PopupActions.CLOSE_POPUP}),
-    onRequestSubContent: (path, item) => dispatch(requestSubContent(path, item))
+    }
   }
 }
 
@@ -72,13 +63,8 @@ const App = ({
     onSearchChange, 
     searchField, 
     query, 
-    verses, 
-    subContent,
-    onRequestPopup, 
-    popupVisible, 
-    popupContent, 
-    onRequestClose,
-    onRequestSubContent }) => {
+    verses
+   }) => {
 
   return (
     <div id="container">
@@ -121,9 +107,9 @@ const App = ({
       <div id="section7">
         {
           links.map((item, idx) => {
-            return (<div>
+            return (<div key={idx}>
               <FontAwesomeIcon icon={item.icon} />
-              <a href={item.url} target="_blank"> {item.text}</a>
+              <a href={item.url} > {item.text}</a>
             </div>)
           })
         }
