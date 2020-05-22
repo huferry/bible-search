@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './components/SearchBar'
 import VerseViewer from './components/VerseViewer'
 import { connect } from 'react-redux'
-import { SearchActions, VersesActions } from './actions'
+import { setSearchField, requestVerse } from './actions'
 import './App.css';
 import Scroll from './components/Scroll';
 import HtmlFrame from './components/HtmlFrame'
@@ -11,50 +11,23 @@ import BackButton from './components/BackButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core';
+import links from './links'
 
 library.add(fab)
-
-const links = [
-  { 
-    icon: ['fab', 'github'],
-    text: 'Repository',
-    url: 'https://github.com/huferry/bible-search'
-  },
-  {
-    icon: ['fab', 'linkedin'],
-    text: 'Profile',
-    url: 'https://www.linkedin.com/in/heruutomo/'
-  },
-  {
-    icon: ['fab', 'instagram'],
-    text: 'Instagram',
-    url: 'https://www.instagram.com/huferry/'
-  },
-  {
-    icon: ['fab', 'twitter'],
-    text: 'Twitter',
-    url: 'https://twitter.com/huferry'
-  },
-  {
-    icon: ['fab', 'facebook'],
-    text: 'Facebook',
-    url: 'https://www.facebook.com/huferry/'
-  }
-]
 
 const mapStateToProps = (state) => {
   return {
     searchField: state.searchVerses.searchField,
-    verses: state.verses.verses,
-    query: state.verses.query
+    query: state.verses.query,
+    verses: state.verses.verses
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onSearchChange: event => {
-      dispatch({type: VersesActions.SET_QUERY, payload: event.target.value })
-      dispatch({type: SearchActions.CHANGE_SEARCHFIELD, payload: event.target.value})      
+      dispatch(setSearchField(event.target.value))
+      dispatch(requestVerse(event.target.value))
     }
   }
 }
@@ -85,9 +58,9 @@ const App = ({
       <div id="section3">
         <h2>Demo</h2>
         <div id="demo-site">
-          <SearchBar searchChange={onSearchChange} searchField={searchField}/>
+          <SearchBar searchChange={onSearchChange} searchField={searchField} />
           <Scroll id="viewer">
-            <VerseViewer query={query} verses={verses}/>
+            <VerseViewer query={query} verses={verses} />
           </Scroll>
         </div>
         <BackButton/>

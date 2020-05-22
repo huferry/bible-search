@@ -1,8 +1,8 @@
 import { SearchActions, VersesActions } from './actions'
-import BibleService from './services/bibleService'
 
 const initialStateSearch = {
-    searchField: ''
+    searchField: '',
+    lastChanged: undefined
 }
 
 const initialStateVerses = {
@@ -10,10 +10,19 @@ const initialStateVerses = {
     verses: []
 }
 
+export const now = () => (new Date()).valueOf()
+
 export const searchVerses = (state=initialStateSearch, action={}) => {
     switch(action.type) {
         case SearchActions.CHANGE_SEARCHFIELD:
-            return {...state, ...{ searchField: action.payload } }
+            return {...state, ...{ searchField: action.payload, lastChanged: now() } }
+        case SearchActions.SEND_SEARCHFIELD: 
+            const spanSinceLastChange = now() - state.lastChanged
+            if (spanSinceLastChange >= 1000 && state.searchFunc) {
+                state.searchFunc(state.searchField)
+            }
+            
+            return state
         default:
             return state
     }
@@ -21,16 +30,18 @@ export const searchVerses = (state=initialStateSearch, action={}) => {
 
 export const verses = (state=initialStateVerses, action={}) => {
     switch(action.type) {
-        case VersesActions.SET_VERSES:
-            return {...state, ...{ verses: action.payload }}
-        case VersesActions.SET_QUERY:
-            const queries = BibleService.parse(action.payload)
-            if (queries && queries.length > 0) {
-                const query = queries[0]
-                const verses = BibleService.query(query)
-                return {...state, ...{query, verses}}
-            }
-            return {...state, ...{query: undefined}}
+        case VersesActions.REQUEST_PENDING:
+            return state
+
+        case VersesActions.REQUEST_SUCCESS:
+            return { 
+                ...state, 
+                ...{ 
+                    verses: action.payload.verses, 
+                    query: action.payload.query 
+                }
+            }    
+
         default:
             return state;
     }
