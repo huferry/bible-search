@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bible-search/static/css/main.a57a9fbf.chunk.css",
+    "main.js": "/bible-search/static/js/main.ffbdf563.chunk.js",
+    "main.js.map": "/bible-search/static/js/main.ffbdf563.chunk.js.map",
+    "runtime-main.js": "/bible-search/static/js/runtime-main.405e5bd7.js",
+    "runtime-main.js.map": "/bible-search/static/js/runtime-main.405e5bd7.js.map",
+    "static/css/2.3c03f26f.chunk.css": "/bible-search/static/css/2.3c03f26f.chunk.css",
+    "static/js/2.65e76ab6.chunk.js": "/bible-search/static/js/2.65e76ab6.chunk.js",
+    "static/js/2.65e76ab6.chunk.js.map": "/bible-search/static/js/2.65e76ab6.chunk.js.map",
+    "index.html": "/bible-search/index.html",
+    "precache-manifest.bdd293bd6efb483ad7f88910ce5d5ebe.js": "/bible-search/precache-manifest.bdd293bd6efb483ad7f88910ce5d5ebe.js",
+    "service-worker.js": "/bible-search/service-worker.js",
+    "static/css/2.3c03f26f.chunk.css.map": "/bible-search/static/css/2.3c03f26f.chunk.css.map",
+    "static/css/main.a57a9fbf.chunk.css.map": "/bible-search/static/css/main.a57a9fbf.chunk.css.map",
+    "static/js/2.65e76ab6.chunk.js.LICENSE.txt": "/bible-search/static/js/2.65e76ab6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.405e5bd7.js",
+    "static/css/2.3c03f26f.chunk.css",
+    "static/js/2.65e76ab6.chunk.js",
+    "static/css/main.a57a9fbf.chunk.css",
+    "static/js/main.ffbdf563.chunk.js"
+  ]
+}
