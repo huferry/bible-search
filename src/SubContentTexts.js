@@ -65,6 +65,13 @@ const who = `
 While it might sounds like Japanese, it is not. I was born on Java, so 
 practically I'm a Javanese rather than a Japanese.
 </p>
+<p>I'm a full-stack developer, with also a passion for Scrum mastery. I find
+writing code is exciting but growing a Scrum team is a fine challange for me. 
+Some of my stacks I've experienced with: C# backend programming (framework, core),
+C# the old fashioned win forms for Windows, Delphi (desktop and backend programming),
+NodeJS, JavaScript front-end (React, Redux), HTML, CSS, Azure Web App, Azure 
+Cosmos DB, Azure Functions, MongoDB, Oracle (PL/SQL) and Flutter/Dart.
+</p>
 <p>I was born in the seventies and start programming when I was 14 years.
 I write code fluently in the good old Delphi 🤬, C# and JavaScript. 
 Since the corona attack I trade my time I used to have to commute, two times 60km,
